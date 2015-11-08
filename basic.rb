@@ -156,7 +156,7 @@ RUBY
 
 uncomment_lines 'spec/rails_helper.rb', "Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }"
 
-empty_directory 'spec/support'
+run 'mkdir spec/support'
 run 'curl -L https://raw.githubusercontent.com/upinetree/rails_template/master/files/spec/support/factory_girl.rb -o spec/support/factory_girl.rb'
 run 'curl -L https://raw.githubusercontent.com/upinetree/rails_template/master/files/spec/support/setup_database.rb -o spec/support/setup_database.rb'
 
