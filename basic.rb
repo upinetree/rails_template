@@ -147,14 +147,15 @@ RUBY
 insert_into_file 'spec/rails_helper.rb', <<RUBY.strip_heredoc, after: "require 'rspec/rails'\n"
   require 'capybara/rspec'
   require 'capybara/poltergeist'
+
   Capybara.javascript_driver = :poltergeist
+
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 RUBY
 
 insert_into_file 'spec/rails_helper.rb', <<RUBY, after: "RSpec.configure do |config|\n"
   config.include ActiveSupport::Testing::TimeHelpers
 RUBY
-
-uncomment_lines 'spec/rails_helper.rb', "Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }"
 
 run 'mkdir spec/support'
 run 'curl -L https://raw.githubusercontent.com/upinetree/rails_template/master/files/spec/support/factory_girl.rb -o spec/support/factory_girl.rb'
