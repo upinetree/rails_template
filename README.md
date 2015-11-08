@@ -10,3 +10,15 @@
 ```
 rails new [appname] -BT -d=postgresql -m https://raw.githubusercontent.com/upinetree/rails_template/master/basic.rb
 ```
+
+## TODO :innocent:
+* gem configuration:
+  * dispatcher (or drop it?)
+  * fontawesome
+  * bootstrap-sass-official
+  * better\_errors vs web-console
+  * rubocop
+  * slim\_lint
+  * ...
+* gitignore
+* githooks
