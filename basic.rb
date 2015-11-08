@@ -59,7 +59,7 @@ gem_group :test do
   gem 'poltergeist'
 end
 
-run 'bundle install --jobs=4' if yes?('Run bundle install now? (y/n)')
+run 'bundle install --jobs=4'
 
 # Configs
 #-------------------------------------------------
@@ -113,11 +113,9 @@ create_file 'README.md', <<-README.strip_heredoc
   * ...
 README
 
-if yes? 'Download default locales? (y/n)'
-  remove_file 'config/locales/en.yml'
-  run 'curl -L http://raw.github.com/svenfuchs/rails-i18n/master/rails/locale/en.yml -o config/locales/en.yml'
-  run 'curl -L http://raw.github.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml -o config/locales/ja.yml'
-end
+remove_file 'config/locales/en.yml'
+run 'curl -L https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/en.yml -o config/locales/en.yml'
+run 'curl -L https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml -o config/locales/ja.yml'
 
 remove_file 'db/seeds.rb'
 remove_comments 'config/routes.rb'
